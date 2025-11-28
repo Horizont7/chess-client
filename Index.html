@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Online Chess</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="CSS/style.css">
+
+  <!-- Socket.io -->
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+  <!-- ============ KIRISH (MAIN MENU) ============ -->
+  <!-- 1- ekran: Asosiy menyu -->
+<div id="main-menu" class="menu-screen active">
+    <h1 class="title">Global Chess</h1>
+
+    <button id="btn-online" class="menu-btn">Играть онлайн</button>
+    <button id="btn-vs-friend" class="menu-btn">Играть против друга</button>
+    <button id="btn-vs-ai" class="menu-btn">Играть против ИИ</button>
+    <button id="btn-lessons" class="menu-btn">Уроки шахмат</button>
+  </div>
+
+
+ <!-- 2- ekran: AI daraja tanlash menyusi -->
+<div id="ai-menu" class="menu-screen">
+  <h1 class="title">Выберите уровень сложности</h1>
+
+  <div class="level-buttons-row">
+    <button class="menu-btn level-btn" data-level="easy">Easy</button>
+    <button class="menu-btn level-btn" data-level="medium">Medium</button>
+    <button class="menu-btn level-btn" data-level="hard">Hard</button>
+    <button class="menu-btn level-btn" data-level="expert">Expert</button>
+    <button class="menu-btn level-btn" data-level="impossible">Impossible</button>
+  </div>
+
+  <button id="btn-ai-back" class="menu-btn secondary">Назад</button>
+</div>
+
+
+  <!-- ============ ASOSIY O‘YIN BLOKI ============ -->
+
+
+
+  <div id="turn-indicator"></div>
+  <div id="check-indicator"></div>
+  <div id="game-indicator"></div>
+
+  <div id="board-outer">
+    <div class="player-panel top">
+      <div class="player-name" id="black-name">Opponent (Black)</div>
+      <div class="player-time clock" id="black-clock">05:00</div>
+    </div>
+
+    <div id="board-row">
+      <div id="ranks">
+        <span>8</span><span>7</span><span>6</span><span>5</span>
+        <span>4</span><span>3</span><span>2</span><span>1</span>
+      </div>
+
+      <div id="board-and-files">
+        <div id="board"></div>
+        <div id="files">
+          <span>a</span><span>b</span><span>c</span><span>d</span>
+          <span>e</span><span>f</span><span>g</span><span>h</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-panel bottom">
+      <div class="player-name" id="white-name">You (White)</div>
+      <div class="player-time clock" id="white-clock">05:00</div>
+    </div>
+  </div>
+
+  <div id="move-history-container">
+    <h3>Yurishlar (PGN)</h3>
+    <div id="move-history"></div>
+  </div>
+
+  <!-- Piyoda promosiya oynasi -->
+  <div id="promotion-modal" class="hidden">
+    <div class="promotion-dialog">
+      <p>Piyoda qaysi figuraning o‘rniga aylansin?</p>
+      <div class="promotion-buttons">
+        <button class="promotion-choice" data-piece="q">♕</button>
+        <button class="promotion-choice" data-piece="r">♖</button>
+        <button class="promotion-choice" data-piece="b">♗</button>
+        <button class="promotion-choice" data-piece="n">♘</button>
+      </div>
+    </div>
+  </div>
+
+ <!-- ============ JS MODULLAR ============ -->
+
+<!-- 1) Menyu va boshqalar -->
+<script src="JS/menu.js"></script>
+
+<!-- 2) O‘yin logikasi -->
+<script src="JS/moves.js"></script>
+<script src="JS/board.js"></script>
+<script src="JS/ui.js"></script>
+<script src="JS/timer.js"></script>
+<script src="JS/socket.js"></script>
+
+<!-- 3) AI -->
+<script src="JS/ai/ai_stockfish.js"></script>
+<script src="JS/ai/ai.js"></script>
+
+<!-- 4) Asosiy controller -->
+<script src="JS/main.js"></script>
+
+</body>
+</html>
