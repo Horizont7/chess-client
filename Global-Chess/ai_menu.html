@@ -1,0 +1,135 @@
+<div class="gc-ai-panel">
+
+  <!-- X tugma -->
+  <button class="gc-ai-close-x gc-ai-close-btn" type="button">✕</button>
+
+  <!-- Yuqori header -->
+  <div class="gc-ai-top">
+    <div class="gc-ai-title-block">
+      <h2 class="gc-ai-title">CHOOSE YOUR AI OPPONENT</h2>
+      <p class="gc-ai-subtitle">Select bot and start the game</p>
+    </div>
+    <div class="gc-ai-logo">
+      <img src="assets/logo/logo.png" />
+      <span class="gc-ai-logo-text">GLOBAL CHESS</span>
+    </div>
+  </div>
+
+  <div class="gc-ai-layout">
+    <!-- CHAP TOMON – BOTLAR -->
+    <div class="gc-ai-bots-column">
+
+      <div class="gc-ai-bots-row">
+        <button class="gc-ai-bot-card gc-ai-btn" data-level="easy">
+          <img src="assets/aimodulephoto/easybot.png" class="gc-ai-bot-img" alt="Easy bot">
+          <div class="gc-ai-bot-name">Easy</div>
+          <div class="gc-ai-bot-desc">Beginner practice</div>
+        </button>
+
+        <button class="gc-ai-bot-card gc-ai-btn" data-level="medium">
+          <img src="assets/aimodulephoto/mediumbot.png" class="gc-ai-bot-img" alt="Medium bot">
+          <div class="gc-ai-bot-name">Medium</div>
+          <div class="gc-ai-bot-desc">Balanced challenge</div>
+        </button>
+
+        <button class="gc-ai-bot-card gc-ai-btn" data-level="hard">
+          <img src="assets/aimodulephoto/hardbot.png" class="gc-ai-bot-img" alt="Hard bot">
+          <div class="gc-ai-bot-name">Hard</div>
+          <div class="gc-ai-bot-desc">Strong opponent</div>
+        </button>
+      </div>
+
+      <div class="gc-ai-bots-row gc-ai-bots-row-bottom">
+        <button class="gc-ai-bot-card gc-ai-btn" data-level="impossible">
+          <img src="assets/aimodulephoto/impossiblebot.png" class="gc-ai-bot-img" alt="Impossible bot">
+          <div class="gc-ai-bot-name">Impossible</div>
+          <div class="gc-ai-bot-desc">For true masters only</div>
+        </button>
+
+        <button class="gc-ai-bot-card gc-ai-btn" data-level="trainer">
+          <img src="assets/aimodulephoto/trainerbot.png" class="gc-ai-bot-img" alt="AI Trainer bot">
+          <div class="gc-ai-bot-name">AI Trainer</div>
+          <div class="gc-ai-bot-desc">Practice &amp; tips</div>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- O'NG TOMON – GAME SETTINGS -->
+    <div class="gc-ai-settings-column">
+      <div class="gc-ai-settings-title">GAME SETTINGS</div>
+
+      <!-- BULLET -->
+      <div class="gc-ai-timer-section">
+        <div class="gc-ai-timer-header">
+          <span class="gc-ai-timer-icon">🪶</span>
+          <span class="gc-ai-timer-title">Bullet</span>
+        </div>
+        <div class="gc-ai-timer-grid">
+          <button class="gc-ai-timer-btn" data-time="1+0">1 min</button>
+          <button class="gc-ai-timer-btn" data-time="1+1">1 | 1</button>
+          <button class="gc-ai-timer-btn" data-time="2+1">2 | 1</button>
+          <button class="gc-ai-timer-btn" data-time="0.5+0">30 sec</button>
+          <button class="gc-ai-timer-btn" data-time="0.3+0">20 sec</button>
+          <button class="gc-ai-timer-btn" data-time="0.3+1">20 sec | 1</button>
+        </div>
+      </div>
+
+      <!-- BLITZ -->
+      <div class="gc-ai-timer-section">
+        <div class="gc-ai-timer-header">
+          <span class="gc-ai-timer-icon">⚡</span>
+          <span class="gc-ai-timer-title">Blitz</span>
+        </div>
+        <div class="gc-ai-timer-grid">
+          <button class="gc-ai-timer-btn gc-ai-timer-btn-active" data-time="3+0">3 min</button>
+          <button class="gc-ai-timer-btn" data-time="3+2">3 | 2</button>
+          <button class="gc-ai-timer-btn" data-time="5+0">5 min</button>
+          <button class="gc-ai-timer-btn" data-time="5+5">5 | 5</button>
+          <button class="gc-ai-timer-btn" data-time="5+2">5 | 2</button>
+        </div>
+      </div>
+
+      <!-- RAPID -->
+      <div class="gc-ai-timer-section">
+        <div class="gc-ai-timer-header">
+          <span class="gc-ai-timer-icon">🕊</span>
+          <span class="gc-ai-timer-title">Rapid</span>
+        </div>
+        <div class="gc-ai-timer-grid">
+          <button class="gc-ai-timer-btn" data-time="10+0">10 min</button>
+          <button class="gc-ai-timer-btn" data-time="15+10">15 | 10</button>
+          <button class="gc-ai-timer-btn" data-time="30+0">30 min</button>
+          <button class="gc-ai-timer-btn" data-time="10+5">10 | 5</button>
+          <button class="gc-ai-timer-btn" data-time="20+0">20 min</button>
+          <button class="gc-ai-timer-btn" data-time="60+0">60 min</button>
+        </div>
+      </div>
+
+      <!-- UNTIMED -->
+      <div class="gc-ai-timer-section">
+        <div class="gc-ai-timer-header">
+          <span class="gc-ai-timer-icon">∞</span>
+          <span class="gc-ai-timer-title">Untimed</span>
+        </div>
+        <div class="gc-ai-untimed-grid">
+          <button class="gc-ai-timer-btn" data-time="untimed">No timer</button>
+        </div>
+      </div>
+
+      <!-- PLAY AS -->
+      <div class="gc-ai-timer-section gc-ai-color-section">
+        <div class="gc-ai-timer-header">
+          <span class="gc-ai-timer-icon">♟</span>
+          <span class="gc-ai-timer-title">Play as</span>
+        </div>
+        <div class="gc-ai-timer-grid gc-ai-color-grid">
+          <button class="gc-ai-timer-btn gc-ai-color-btn gc-ai-timer-btn-active" data-color="white">White</button>
+          <button class="gc-ai-timer-btn gc-ai-color-btn" data-color="black">Black</button>
+          <button class="gc-ai-timer-btn gc-ai-color-btn" data-color="random">Random</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

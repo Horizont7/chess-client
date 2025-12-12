@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Global Chess – Menu</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/ai/ai.css" />
+  <link rel="stylesheet" href="CSS/settings/settings.css">
+
+</head>
+
+<body>
+
+  <div class="gc-app">
+
+    <!-- ===== Yon figurkalar ===== -->
+    <img class="side-figure knight" src="assets/menuphoto/knight_big.png" alt="">
+    <img class="side-figure queen" src="assets/menuphoto/queen_big.png" alt="">
+
+
+    <!-- ===== Yuqori panel ===== -->
+    <header class="gc-header">
+
+      <!-- Profil karta (chap) -->
+      <div class="gc-profile-card">
+
+        <div class="gc-avatar"></div>
+
+        <div class="gc-profile-info">
+          <div class="gc-profile-name-row">
+            <span id="profile-name" class="gc-profile-name">Player</span>
+          </div>
+
+          <div class="gc-profile-level-row">
+            <span class="gc-profile-level">Level 1</span>
+            <div class="gc-level-bar">
+              <div class="gc-level-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- O‘rtadagi nom -->
+      <div class="gc-logo-title">
+        <img src="assets/Logo/logo.png" class="gc-logo-img">
+        <span>GLOBAL CHESS</span>
+      </div>
+
+      <!-- Money-bar (o'ng tomonda) -->
+      <div class="gc-moneybar">
+
+        <div class="money-item">
+          <img src="assets/moneyicon/coin.png" alt="">
+          <span>25717</span>
+        </div>
+
+        <div class="money-item">
+          <img src="assets/moneyicon/diamond.png" alt="">
+          <span>64</span>
+        </div>
+
+        <div class="money-item">
+          <img src="assets/moneyicon/dollar.png" alt="">
+          <span>12</span>
+        </div>
+
+        <div class="money-item add">
+          <img src="assets/moneyicon/plus.png" alt="">
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- ===== Asosiy kontent ===== -->
+    <main class="gc-main">
+
+      <!-- SETTINGS OVERLAY -->
+      <div id="settings-overlay" class="hidden">
+
+        <div class="settings-panel">
+          <h2 class="settings-title">SETTINGS ⚙</h2>
+
+          <div class="settings-grid">
+
+            <!-- === Nickname pill === -->
+            <div class="settings-row settings-nickname-row">
+              <button id="nickname-edit-btn" class="settings-pill-btn settings-pill-nickname" type="button">
+                <span class="settings-pill-title">
+                  <img src="assets/icons/nickname.png" class="acc-icon" alt="">
+                  Nickname
+                </span>
+              </button>
+            </div>
+
+            <!-- === Profile pill === -->
+            <div class="settings-row settings-profile-row">
+              <button id="settings-profile-btn" class="settings-pill-btn settings-pill-profile" type="button">
+                <span class="settings-pill-title">
+                  <img src="assets/icons/profile.gif" class="acc-icon" alt="">
+                  Profile
+                </span>
+              </button>
+            </div>
+
+
+
+
+            <!-- Sound toggle -->
+            <div class="settings-row settings-toggle-row">
+              <span>Sound</span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-sound" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <!-- Notification toggle -->
+            <div class="settings-row settings-toggle-row">
+              <span>Notification</span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-notification" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <!-- ACCOUNT title -->
+            <div class="settings-section-title">
+              ACCOUNT
+            </div>
+
+            <!-- Account buttons -->
+            <div class="settings-account-buttons">
+              <button class="btn-acc btn-acc-google" type="button">
+                <img src="assets/icons/Google.gif" class="acc-icon" alt="">
+                Google account
+              </button>
+
+              <button class="btn-acc btn-acc-icloud" type="button">
+                <img src="assets/icons/icloud.gif" class="acc-icon" alt="">
+                iCloud
+              </button>
+
+              <button class="btn-acc btn-acc-facebook" type="button">
+                <img src="assets/icons/facebook.gif" class="acc-icon" alt="">
+                Facebook
+              </button>
+
+              <button class="btn-acc btn-acc-email" type="button">
+                <img src="assets/icons/email.gif" class="acc-icon" alt="">
+                Email
+              </button>
+            </div>
+
+          </div> <!-- /.settings-grid -->
+
+          <!-- Pastki tugmalar -->
+          <div class="settings-actions">
+            <button id="profile-save-btn" class="btn-settings-primary" type="button">
+              Save
+            </button>
+            <button id="settings-close" class="btn-settings-secondary" type="button">
+              Close
+            </button>
+          </div>
+
+        </div> <!-- /.settings-panel -->
+
+      </div> <!-- /#settings-overlay -->
+
+      <!-- NICKNAME CHANGE MODAL (GLOBAL CHESS – ENGLISH VERSION) -->
+      <div id="nickname-modal" class="gc-nick-modal hidden">
+        <div class="gc-nick-window">
+
+          <div class="gc-nick-header">
+            <span>Change Nickname</span>
+            <button id="nick-close-btn" class="gc-nick-close">✕</button>
+          </div>
+
+          <div class="gc-nick-cost" id="nick-cost-text">
+            This change will require: <span class="cost">15 crystals</span> (first time free).
+          </div>
+
+          <div class="gc-nick-input-wrap">
+            <input type="text" id="nick-input" maxlength="14" placeholder="Enter a new nickname...">
+          </div>
+
+          <div id="nick-error" class="gc-nick-error"></div>
+
+          <button id="nick-confirm-btn" class="gc-nick-confirm">
+            Confirm
+          </button>
+        </div>
+      </div>
+
+      <!-- PROFILE CHANGE MODAL (GLOBAL CHESS – ENGLISH VERSION) -->
+
+      <div id="profile-modal" class="profile-modal" style="display: none;">
+  <div class="profile-modal-content">
+
+    <div class="profile-modal-header">
+      <span class="profile-modal-title">PROFILE</span>
+
+      <div class="profile-header-actions">
+        <button id="profile-edit-btn" class="profile-edit-btn" type="button">Edit</button>
+        <button id="profile-close-btn" class="profile-close-btn" type="button">✕</button>
+      </div>
+    </div>
+
+    <div class="profile-modal-body">
+
+      <!-- Avatar -->
+      <div class="profile-avatar-box">
+        <div class="profile-avatar"></div>
+      </div>
+
+      <!-- Info fields -->
+      <div class="profile-info">
+        <!-- First name -->
+        <div class="profile-info-item">
+          <span class="label">First Name:</span>
+
+          <span class="value view-value" id="profile-firstname-view"></span>
+          <input class="value input-value" id="profile-firstname-input" type="text" />
+        </div>
+
+        <!-- Last name -->
+        <div class="profile-info-item">
+          <span class="label">Last Name:</span>
+
+          <span class="value view-value" id="profile-lastname-view"></span>
+          <input class="value input-value" id="profile-lastname-input" type="text" />
+        </div>
+
+        <!-- Phone -->
+        <div class="profile-info-item">
+          <span class="label">Phone Number:</span>
+
+          <span class="value view-value" id="profile-phone-view"></span>
+          <input class="value input-value" id="profile-phone-input" type="text" />
+        </div>
+
+        <!-- Country -->
+        <div class="profile-info-item">
+          <span class="label">Country:</span>
+
+          <span class="value view-value" id="profile-country-view"></span>
+          <input class="value input-value" id="profile-country-input" type="text" />
+        </div>
+
+        <!-- Flag -->
+        <div class="profile-info-item">
+          <span class="label">Flag:</span>
+
+          <span class="value view-value" id="profile-flag-view"></span>
+          <input class="value input-value" id="profile-flag-input" type="text" />
+        </div>
+
+        <!-- Status -->
+        <div class="profile-info-item">
+          <span class="label">Status:</span>
+
+          <span class="value view-value" id="profile-status-view"></span>
+          <input class="value input-value" id="profile-status-input" type="text" />
+        </div>
+      </div>
+
+      <!-- Save / Cancel faqat edit rejimda ko'rinadi -->
+      <div class="profile-edit-actions">
+        <button id="profile-save-btn" type="button" class="profile-save-btn">Save</button>
+<button id="profile-cancel-btn" type="button" class="profile-cancel-btn">Cancel</button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+      <!-- Chap menyu -->
+      <nav class="gc-side gc-side-left">
+        <div class="gc-trap">LEADERBOARD</div>
+        <div class="gc-trap">PLAYERS</div>
+        <div class="gc-trap">FRIENDS</div>
+        <div class="gc-trap">MARKET</div>
+        <div class="gc-trap">COLLECTION</div>
+        <div class="gc-trap">WALLET</div>
+      </nav>
+
+      <!-- O‘rtadagi bo‘sh zona -->
+      <section class="gc-center-panel">
+        <div id="gc-ai-menu-slot"></div>
+        <div class="gc-center-placeholder">
+          Home / Menyu kontentini keyin qo‘shamiz
+        </div>
+      </section>
+
+      <!-- O‘ng menyu -->
+      <nav class="gc-side gc-side-right">
+        <div class="gc-trap">NEWS</div>
+        <div class="gc-trap">CLUBS</div>
+        <div class="gc-trap">ONLINE STREAM</div>
+        <div class="gc-trap">SOLO CHESS</div>
+        <div class="gc-trap">MATCH HISTORY</div>
+        <div id="btn-settings" class="gc-trap">SETTINGS ⚙</div>
+      </nav>
+
+    </main>
+
+
+    <!-- ===== Pastki navbar ===== -->
+    <footer class="gc-footer">
+      <button class="gc-nav">CHESS LESSONS</button>
+      <button class="gc-nav">PLAY VS FRIENDS</button>
+      <button class="gc-nav">PLAY VS AI</button>
+      <button class="gc-nav active">PLAY ONLINE FREE</button>
+      <button class="gc-nav">EARN MONEY $</button>
+      <button class="gc-nav">TOURNAMENTS</button>
+      <button class="gc-nav">ONLINE COACH</button>
+    </footer>
+
+  </div>
+
+  <!-- 🔹 AI FULLSCREEN MODAL -->
+  <div id="gc-ai-modal" class="gc-ai-modal hidden">
+    <!-- qora fon -->
+    <div class="gc-ai-modal-backdrop"></div>
+
+    <!-- o'rtadagi panel konteyneri -->
+    <div class="gc-ai-modal-center">
+      <div id="gc-ai-modal-inner"></div>
+    </div>
+  </div>
+
+  </div> <!-- .gc-app -->
+
+  <script src="js/ai/ai.js"></script>
+  <script src="js/ai/ai_menu.js"></script>
+  <script src="js/profile/profile.js"></script>
+  <script src="js/setting/setting.js"></script>
+</body>
+
+</html>

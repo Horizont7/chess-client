@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Global Chess – Local Game</title>
+
+  <!-- Asosiy fon va umumiy stil -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Taxta va game sahifasi stili -->
+  <link rel="stylesheet" href="css/board.css" />
+</head>
+
+<body>
+  <div class="gc-app game-page">
+
+    <!-- ===== Yuqori panel: ortga menyu, logo va nom ===== -->
+    <header class="gc-game-header">
+      <a class="gc-back-btn" href="index.html">
+        <img src="assets/anyicons/3LINE.png" class="menu-icon">
+        <span class="menu-text">MENU</span>
+      </a>
+
+      <div class="gc-game-title">
+        <img src="assets/Logo/logo.png" alt="Global Chess" class="gc-game-logo">
+        <div class="gc-game-text">
+          <h1>GLOBAL CHESS</h1>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Asosiy layout ===== -->
+    <main class="gc-game-main">
+
+      <!-- ========== CHAP PANEL ========== -->
+      <section class="gc-side-panel gc-left-panel">
+
+        <!-- Yuqori player bloki -->
+        <div class="gc-card gc-player-card gc-player-top">
+
+          <!-- Qo'shimcha menyular + timer (tepada kichik qator) -->
+          <div class="gc-card-header gc-extra-menu-row">
+            <div class="gc-extra-spacer"></div>
+          </div>
+
+          <!-- Player name qatori: flag + name + timer -->
+          <div class="gc-player-name-row">
+            <div class="gc-flag-slot"></div>
+            <div class="gc-player-name-bar">
+              <span>WHITE PLAYER</span>
+            </div>
+            <div class="gc-player-timer" id="white-timer">--:--</div>
+          </div>
+
+          <!-- Katta bo'sh joy – keyin animatsiya uchun -->
+          <div class="gc-player-anim-area">
+            <!-- keyinchalik animatsiyalar qo'shamiz -->
+          </div>
+
+          <!-- Stikerlar uchun kichik joy (pastki chap) -->
+          <div class="gc-player-stickers-row">
+            <div class="gc-sticker-slot"></div>
+          </div>
+        </div>
+
+        <!-- Pastki chat / kuzatuvchilar bloki -->
+        <div class="gc-card gc-chat-card">
+          <div class="gc-card-header gc-chat-header">
+            <div class="gc-spectators">
+              <span class="gc-eye-icon"></span>
+              <span class="gc-spectators-count">0 viewers</span>
+            </div>
+          </div>
+
+          <!-- Kuzatuvchilar commentlari ko'rinadigan joy -->
+          <div class="gc-chat-messages" id="chat-messages">
+            <!-- keyin real chat xabarlar qo'shamiz -->
+          </div>
+
+          <!-- EMOJI PANEL – xabarlar bilan input orasida -->
+          <div id="emoji-expanded" class="hidden">
+            <div class="emoji-expanded-window">
+              <div class="emoji-expanded-grid">
+                <!-- JS bu yerga emoji-larni qo'yadi -->
+              </div>
+            </div>
+          </div>
+
+          <!-- O'yinchi javob yozadigan joy -->
+          <div class="gc-chat-input-row">
+            <div class="gc-chat-input-wrapper" id="emoji-wrapper">
+              <button class="chat-emoji-btn" id="emoji-btn">🙂</button>
+              <input id="chat-input" type="text" placeholder="Message..." class="gc-chat-input" />
+            </div>
+
+            <button id="chat-send" class="gc-chat-send">➤</button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ========== O'RTA PANEL – TAHTA ========== -->
+      <section class="gc-center-panel">
+        <section class="gc-board-wrapper">
+          <div class="gc-indicators">
+            <div id="turn-indicator">White to move</div>
+            <div id="check-indicator"></div>
+            <div id="game-indicator"></div>
+          </div>
+
+          <div id="board-outer">
+            <div id="board"></div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Pawn promotion modal -->
+  <div id="promotion-modal" class="gc-promo-modal hidden">
+  <div class="gc-promo-window">
+    <div class="gc-promo-header">
+      <span>Choose promotion</span>
+    </div>
+    <div class="gc-promo-body">
+      <div class="gc-promo-options gc-promo-options-icons">
+        <img src="assets/pieces/wq.png"
+             class="gc-promo-img"
+             data-promo-piece="q"
+             alt="Queen" />
+
+        <img src="assets/pieces/wr.png"
+             class="gc-promo-img"
+             data-promo-piece="r"
+             alt="Rook" />
+
+        <img src="assets/pieces/wb.png"
+             class="gc-promo-img"
+             data-promo-piece="b"
+             alt="Bishop" />
+
+        <img src="assets/pieces/wn.png"
+             class="gc-promo-img"
+             data-promo-piece="n"
+             alt="Knight" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+      <!-- ========== O‘NG PANEL ========== -->
+      <section class="gc-side-panel gc-right-panel">
+
+        <!-- MOVE HISTORY -->
+        <div class="gc-card gc-moves-card">
+          <div class="gc-moves-header">
+            <span class="gc-moves-title">MOVE HISTORY</span>
+          </div>
+          <div class="gc-moves-body">
+            <ol id="moves-list"></ol>
+          </div>
+        </div>
+
+        <!-- Quyi player bloki (o'ng tomonda) -->
+        <div class="gc-card gc-player-card gc-player-bottom">
+
+          <!-- Player name qatori: flag + name + timer -->
+          <div class="gc-player-name-row">
+            <div class="gc-flag-slot"></div>
+            <div class="gc-player-name-bar">
+              <span>BLACK PLAYER</span>
+            </div>
+            <div class="gc-player-timer" id="black-timer">--:--</div>
+          </div>
+
+          <!-- Katta bo'sh joy – keyinchalik animatsiyalar uchun -->
+          <div class="gc-player-anim-area">
+            <div id="black-sticker-panel" class="gc-sticker-panel hidden">
+              <div class="gc-sticker-grid"></div>
+            </div>
+            <!-- animatsiyalar uchun bo'sh -->
+          </div>
+
+          <!-- Stikerlar uchun joy (pastki chap) -->
+          <div class="gc-player-stickers-row">
+            <div id="black-sticker-btn" class="gc-sticker-slot gc-sticker-emoji"></div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/engine/state.js"></script>
+  <script src="js/engine/moves.js"></script>
+
+  <script src="js/ui/board_ui.js"></script>
+  <script src="js/ui/history_ui.js"></script>
+  <script src="js/ai/ai.js"></script>
+  <script src="js/clock/clock.js"></script>
+  <script src="js/game.js"></script>
+</body>
+
+</html>

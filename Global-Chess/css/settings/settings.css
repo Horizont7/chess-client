@@ -1,0 +1,1011 @@
+/* ===========================
+      SETTINGS OVERLAY
+   =========================== */
+
+#settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  z-index: 9999;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===========================
+      SETTINGS PANEL
+   =========================== */
+
+.settings-panel {
+  width: 360px;
+  background: radial-gradient(circle at top,
+      rgba(25, 30, 60, 0.98),
+      rgba(5, 8, 18, 0.98));
+  border-left: 2px solid rgba(255, 225, 145, 0.4);
+
+  padding: 28px;
+  color: #fff;
+
+  box-shadow: -6px 0 30px rgba(0,0,0,0.75);
+  animation: slideIn 0.25s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+.settings-title {
+  margin-bottom: 18px;
+  font-size: 22px;
+  color: #ffe29f;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ===========================
+      INPUT ROWS
+   =========================== */
+
+.settings-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.settings-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.settings-row label {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.settings-row input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  outline: none;
+  font-size: 14px;
+}
+
+.settings-row input:focus {
+  border-color: rgba(255, 210, 106, 0.9);
+  box-shadow: 0 0 0 1px rgba(255, 210, 106, 0.6);
+}
+
+/* ===========================
+      ACTION BUTTONS (SAVE/CLOSE)
+   =========================== */
+
+.settings-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn-settings-primary,
+.btn-settings-secondary {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  transition: 0.2s ease;
+}
+
+/* Save button */
+.btn-settings-primary {
+  background: linear-gradient(135deg, #ffcf6b, #ffe7b4);
+  color: black;
+  font-weight: bold;
+  border: 1px solid rgba(255, 225, 145, 0.9);
+}
+
+.btn-settings-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.7);
+}
+
+/* Close button */
+.btn-settings-secondary {
+  background: rgba(255,255,255,0.12);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.btn-settings-secondary:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ===========================
+      TOGGLES (Sound / Notification)
+   =========================== */
+
+.settings-toggle-row {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-toggle-row span {
+  font-size: 14px;
+}
+
+/* Switch */
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 22px;
+  display: inline-block;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.25);
+  border-radius: 999px;
+  transition: 0.2s;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  top: 3px;
+  background: #111;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+/* checked holat */
+.toggle-switch input:checked + .toggle-slider {
+  background: #4ade80; /* yashil */
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(18px);
+}
+
+/* ===========================
+      ACCOUNT TITLE
+   =========================== */
+
+.settings-section-title {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 226, 159, 0.9);
+}
+
+/* ===========================
+      ACCOUNT BUTTONS
+   =========================== */
+
+.settings-account-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Umumiy style */
+.btn-acc {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+/* Ikona o'lchami */
+.acc-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Google — oq fon, yashil border */
+.btn-acc-google {
+  background: #ffffff;
+  border-color: #34A853; /* Google Green */
+  color: #000000;
+}
+
+/* iCloud — qora fon, oq text */
+.btn-acc-icloud {
+  background: #020617;
+  border-color: rgba(148, 163, 184, 0.8);
+  color: #e5e7eb;
+}
+
+/* Facebook — ko'k */
+.btn-acc-facebook {
+  background: #1877f2;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+/* Email — yashil (boshqacha ohang) */
+.btn-acc-email {
+  background: #065f46;
+  border-color: #34d399;
+  color: #ecfdf5;
+}
+
+/* Hover effekt */
+.btn-acc:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.7);
+  opacity: 0.95;
+}
+
+/* ===========================
+      PROFILE PILL
+   =========================== */
+
+.btn-profile-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid rgba(148,163,184,0.7);
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+/* ===== ACCOUNT BUTTONS (YANGI STIL) ===== */
+
+.settings-account-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Brend ranglar */
+:root {
+  --gc-google:   #34a853;
+  --gc-icloud:   #38bdf8;
+  --gc-facebook: #1877f2;
+  --gc-email:    #22c55e;
+}
+
+/* Umumiy pill-style knopka */
+.btn-acc {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+
+  background: #050816;
+  color: #f9fafb;
+  font-size: 14px;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Ikona o'lchami */
+.acc-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+/* --- Google: oq pill + yashil neon --- */
+.btn-acc-google {
+  background: #ffffff;
+  color: #000000;
+  border-color: var(--gc-google);
+  box-shadow: 0 0 0 1px rgba(52,168,83,0.5);
+}
+
+.btn-acc-google:hover {
+  box-shadow: 0 0 14px rgba(52,168,83,0.9);
+  transform: translateY(-1px);
+}
+
+/* --- iCloud: qora fon + ko'k neon --- */
+.btn-acc-icloud {
+  background: #ffffff;
+  color: #000000;
+  border-color: var(--gc-icloud);
+  box-shadow: 0 0 0 1px rgba(56,189,248,0.45);
+}
+
+.btn-acc-icloud:hover {
+  box-shadow: 0 0 14px rgba(54, 60, 63, 0.9);
+  transform: translateY(-1px);
+}
+
+/* --- Facebook: ko'k pill + ko'k neon --- */
+.btn-acc-facebook {
+  background: #ffffff;
+  color: #000000;
+  border-color: var(--gc-facebook);
+  box-shadow: 0 0 0 1px rgba(24,119,242,0.55);
+}
+
+.btn-acc-facebook:hover {
+  box-shadow: 0 0 14px rgba(24,119,242,0.95);
+  transform: translateY(-1px);
+}
+
+/* --- Email: to'q yashil + yashil neon --- */
+.btn-acc-email {
+  background: #ffffff;
+  color: #000000;
+  border-color: var(--gc-email);
+  box-shadow: 0 0 0 1px rgba(34,197,94,0.55);
+}
+
+.btn-acc-email:hover {
+  box-shadow: 0 0 14px rgba(34,197,94,0.95);
+  transform: translateY(-1px);
+}
+
+/* Profile pill – yumshoq, neon bo'lmagan variant */
+.btn-profile-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid rgba(148,163,184,0.7);
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-profile-link:hover {
+  border-color: rgba(248,250,252,0.9);
+  box-shadow: 0 0 10px rgba(15,23,42,0.7);
+  transform: translateY(-1px);
+}
+
+/* Nickname sarlavhasi */
+.settings-row label[for="profile-nickname"] {
+  display: block;
+  text-align: center;
+  margin-bottom: 6px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(248, 250, 252, 0.75);
+}
+
+/* PROFILE pill – yuqorida ko'rinadigan tugma */
+.settings-profile-row .btn-profile-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+
+  color: #000000;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.settings-profile-row .btn-profile-link .acc-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Hover effekti – yengil ko'k neon */
+.settings-profile-row .btn-profile-link:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
+  transform: translateY(-1px);
+}
+
+/* Sound / Notification qatorlari uchun umumiy pill */
+.settings-toggle-row {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle at top,
+              rgba(15, 23, 42, 0.95),
+              rgba(3, 7, 18, 0.98));
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+  transition: 0.2s ease;
+}
+
+/* Matn (Sound / Notification) */
+.settings-toggle-row span {
+  font-size: 14px;
+  color: #e5e7eb;
+}
+
+/* Hoverda yengil yashil neon */
+.settings-toggle-row:hover {
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+  transform: translateY(-1px);
+}
+
+/* === Nickname pill – Profile bilan 1x1 bir xil === */
+.settings-nickname-row .settings-pill-nickname {
+  width: 100%;
+  display: flex;
+  align-items: center;      /* ← icon va text yonma-yon bir chiziqda */
+  justify-content: center;
+  gap: 8px;
+
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  background: #ffffff;
+  border: 1px solid rgba(40, 106, 197, 0.7);
+  box-shadow: 0 0 0 1px rgba(209, 123, 11, 0.7);
+
+  color: #000;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Hover */
+.settings-nickname-row .settings-pill-nickname:hover {
+  box-shadow: 0 0 12px rgba(180, 194, 57, 0.9);
+  transform: translateY(-1px);
+}
+
+
+/* Nickname icon — Profile ikonasi bilan bir xil bo‘lishi uchun */
+.settings-pill-nickname img,
+.settings-pill-nickname svg {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* Nickname va Profile ichidagi title uchun umumiy stil */
+.settings-pill-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ====================================
+      GLOBAL CHESS – NICKNAME MODAL
+   ==================================== */
+
+.gc-nick-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.gc-nick-modal.hidden {
+  display: none !important;
+}
+
+/* ===== Modal window ===== */
+.gc-nick-window {
+  width: 420px;
+  background: radial-gradient(circle at top,
+             rgba(28, 32, 58, 0.95),
+             rgba(10, 14, 28, 0.95));
+  border-radius: 16px;
+  border: 1px solid rgba(255, 222, 140, 0.25);
+
+  box-shadow: 0 0 25px rgba(255, 189, 57, 0.25),
+              0 12px 30px rgba(0,0,0,0.9);
+
+  padding: 22px 26px;
+  animation: gcPop 0.2s ease;
+}
+
+@keyframes gcPop {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ===== Header ===== */
+.gc-nick-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffe5a7;
+  font-size: 18px;
+  font-weight: 600;
+
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 14px;
+}
+
+.gc-nick-close {
+  background: none;
+  border: none;
+  color: #ffe5a7;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.gc-nick-close:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* ===== Cost text ===== */
+.gc-nick-cost {
+  color: #e6e6e6;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.gc-nick-cost .cost {
+  color: #ffd256;
+  font-weight: 600;
+}
+
+/* ===== Input ===== */
+.gc-nick-input-wrap {
+  margin-bottom: 10px;
+}
+
+#nick-input {
+  width: 100%;
+  padding: 12px 14px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+
+  color: #fff;
+  font-size: 15px;
+
+  outline: none;
+  transition: 0.25s ease;
+}
+
+#nick-input:focus {
+  border-color: #ffd568;
+  box-shadow: 0 0 12px rgba(255, 213, 104, 0.45);
+}
+
+/* ===== Error text ===== */
+.gc-nick-error {
+  min-height: 16px;
+  color: #ff7272;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+/* ===== Confirm button ===== */
+.gc-nick-confirm {
+  width: 100%;
+  padding: 10px 0;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255,222,140,0.7);
+
+  background: linear-gradient(135deg, #ffcf6b, #ffe7b4);
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  box-shadow: 0 10px 22px rgba(0,0,0,0.7);
+}
+
+.gc-nick-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.85),
+              0 0 14px rgba(255,202,80,0.55);
+}
+
+ /* ==== PROFILE PILL – Nickname bilan bir xil dizayn qilish ==== */
+
+.settings-profile-row {
+  margin-top: 10px;
+}
+
+/* Asosiy ko‘rinishi */
+.settings-profile-row .settings-pill-profile {
+  width: 100%;
+  display: center;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  background: #ffffff;
+  color: #111827;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+
+  cursor: pointer;
+}
+
+/* Icon + text Nickname dagidek */
+.settings-profile-row .settings-pill-profile .settings-pill-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Hover effekti */
+.settings-profile-row .settings-pill-profile:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(255, 252, 252, 0.5);
+}
+
+/* Active bosilganda */
+.settings-profile-row .settings-pill-profile:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ===== PROFILE MODAL – Global Chess style ===== */
+
+.profile-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* mana shu qatordan z-index ni juda katta qilamiz */
+  z-index: 12000;
+
+  background: radial-gradient(circle at top,
+      rgba(4, 8, 18, 0.75),
+      rgba(0, 0, 0, 0.85));
+}
+
+.profile-modal-content {
+  width: 550px;
+  max-width: calc(100% - 120px);
+  height: 600px;
+  max-height: calc(100% - 120px);
+
+  border-radius: 26px;
+  border: 1px solid rgba(255, 225, 145, 0.7);
+
+  background: radial-gradient(circle at top,
+      rgba(25, 30, 60, 0.98),
+      rgba(5, 8, 18, 0.98));
+
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.95);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* header – yuqori qism */
+.profile-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 22px 10px;
+  border-bottom: 1px solid rgba(255, 225, 145, 0.25);
+}
+
+.profile-modal-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f9e9b5;
+}
+
+/* ✕ tugma */
+.profile-close-btn {
+  font-size: 20px;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 999px;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.profile-close-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.profile-close-btn:active {
+  transform: translateY(0);
+}
+
+/* ichki kontent (hozircha bo'sh) */
+.profile-modal-body {
+  flex: 1;
+  padding: 20px 24px;
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+/* ===== PROFILE AVATAR ===== */
+
+.profile-avatar-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 225, 145, 0.6);
+  background: url("assets/default_avatar.png") center/cover no-repeat;
+  box-shadow: 0 0 15px rgba(255, 225, 145, 0.3);
+}
+
+
+/* ===== USER INFO LIST ===== */
+
+.profile-info {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profile-info-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.profile-info-item .label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.profile-info-item .value {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* ===== PROFILE HEADER ACTIONS (Edit button) ===== */
+
+.profile-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-edit-btn {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 225, 145, 0.6);
+  background: transparent;
+  color: #f9e9b5;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: none;
+}
+
+.profile-edit-btn:hover {
+  background: rgba(255, 225, 145, 0.12);
+}
+
+/* ===== AVATAR ===== */
+
+.profile-avatar-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  margin-bottom: 26px;
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 225, 145, 0.7);
+  box-shadow: 0 0 20px rgba(255, 225, 145, 0.45);
+  background: radial-gradient(circle at top,
+      rgba(20, 24, 40, 1),
+      rgba(2, 6, 18, 1));
+}
+
+/* ===== INFO LIST ===== */
+
+.profile-info {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-info-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  font-size: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.profile-info-item .label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.profile-info-item .value {
+  text-align: right;
+}
+
+/* ko'rinish rejimi */
+.view-value {
+  color: #ffffff;
+}
+
+/* inputlar – edit rejim uchun */
+.input-value {
+  display: none;
+  text-align: right;
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  padding: 0 0 2px;
+  font-size: 14px;
+}
+
+/* MODAL EDIT REJIMDA BO'LGANDA – view/value toggle */
+.profile-modal-content.editing .view-value {
+  display: none;
+}
+
+.profile-modal-content.editing .input-value {
+  display: block;
+}
+
+/* ===== SAVE / CANCEL BUTTONS ===== */
+
+.profile-edit-actions {
+  margin-top: 24px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;            /* faqat editingda chiqadi */
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.profile-modal-content.editing .profile-edit-actions {
+  display: flex;
+}
+
+.profile-save-btn,
+.profile-cancel-btn {
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-save-btn {
+  background: linear-gradient(90deg, #f9e08f, #f5c96a);
+  color: #111827;
+  font-weight: 600;
+}
+
+.profile-save-btn:hover {
+  filter: brightness(1.05);
+}
+
+.profile-cancel-btn {
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+}
+
+.profile-cancel-btn:hover {
+  background: rgba(30, 41, 59, 1);
+}
+
+/* Bo'sh field (✎) ko'rinishi */
+.profile-info .value.empty {
+  color: rgba(148, 163, 184, 0.9);
+  font-style: italic;
+}
+
+/* Edit rejimda ozgina highlight */
+.profile-modal-content.editing .value.editable.empty {
+  background: rgba(148, 163, 184, 0.18);
+}
+
+.profile-info .value.empty {
+  color: rgba(148, 163, 184, 0.9);
+  font-style: italic;
+}
+
+.profile-modal-content.editing .value.editable {
+  background: rgba(148, 163, 184, 0.12);
+  border-radius: 4px;
+  padding: 1px 4px;
+  outline: none;
+}
+
+#profile-modal { display: none; }
+#profile-modal[style*="display: flex"] { display: flex; }
+
+#profile-modal.hidden { display: none !important; } 
